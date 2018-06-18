@@ -105,7 +105,7 @@
 		</div>
 		<div class="flexbutton">
 			<a href="displayProperty?id=<%=s.getProperty_id()%>" class="button">Detail</a>
-
+			<a href="showProperty?id=<%=s.getProperty_id()%>" class="button">Request</a>	
 		</div>  
 	</div>
  <%	}  %>
