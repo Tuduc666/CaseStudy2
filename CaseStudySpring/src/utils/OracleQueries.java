@@ -8,29 +8,29 @@ public class OracleQueries {
 	
 	public final static String GETPROPERTYBYSTATE = "select * from p_property p "
 			+ "join p_salesperson s on p.salesperson_id = s.salesperson_id "  
-			+ "where p.state_code = ? and p.status = 'Active' order by p.posted_date desc";
+			+ "where p.state_code = ? and p.status = 'Active' order by p.posted_date desc, p.property_id";
 	public final static String GETPROPERTYBYCITY = "select * from p_property p "
 			+ "join p_salesperson s on p.salesperson_id = s.salesperson_id "  
-			+ "where p.city_name = ? and p.status = 'Active' order by p.posted_date desc";
+			+ "where p.city_name = ? and p.status = 'Active' order by p.posted_date desc, p.property_id";
 	public final static String GETALLPROPERTIESACTIVE = "select * from p_property p "
 			+ "join p_salesperson s on p.salesperson_id = s.salesperson_id "  
-			+ "where p.status = 'Active' order by p.posted_date desc";
+			+ "where p.status = 'Active' order by p.posted_date desc, p.property_id";
 	public final static String GETALLPROPERTIES = "select * from p_property p "
 			+ "join p_salesperson s on p.salesperson_id = s.salesperson_id "  
-			+ "order by p.posted_date desc";
+			+ "order by p.posted_date desc, p.property_id";
 	
 	public final static String GETPROPERTYBYSTATEP = "select * from p_property p "
 			+ "join p_salesperson s on p.salesperson_id = s.salesperson_id "  
-			+ "where p.state_code = ? and p.status = 'Active' order by p.asking_price";
+			+ "where p.state_code = ? and p.status = 'Active' order by p.asking_price, p.property_id";
 	public final static String GETPROPERTYBYCITYP = "select * from p_property p "
 			+ "join p_salesperson s on p.salesperson_id = s.salesperson_id "  
-			+ "where p.city_name = ? and p.status = 'Active' order by p.asking_price";
+			+ "where p.city_name = ? and p.status = 'Active' order by p.asking_price, p.property_id";
 	public final static String GETALLPROPERTIESACTIVEP = "select * from p_property p "
 			+ "join p_salesperson s on p.salesperson_id = s.salesperson_id "  
-			+ "where p.status = 'Active' order by p.asking_price";
+			+ "where p.status = 'Active' order by p.asking_price, p.property_id";
 	public final static String GETALLPROPERTIESP = "select * from p_property p "
 			+ "join p_salesperson s on p.salesperson_id = s.salesperson_id "  
-			+ "order by p.asking_price";
+			+ "order by p.asking_price, p.property_id";
 	
 	public final static String ADDPROPERTY = "insert into p_property "
 			+ "(address1,address2,city_name,state_code,zipcode,owner_name,owner_phone,sales_type,property_type,"
@@ -69,7 +69,7 @@ public class OracleQueries {
 	
 	public final static String GETUSERBYID = "select * from p_user " 
 			+ "where user_id = ?";
-	public final static String GETALLUSERS = "select * from p_user ";
+	public final static String GETALLUSERS = "select * from p_user order by user_id";
 	public final static String ADDUSER = "insert into p_user "
 			+ "(user_name,address1,address2,city_name,state_code,zipcode,phone,email,user_type,user_password) "
 			+ "values(?,?,?,?,?,?,?,?,?,?)";
@@ -82,9 +82,9 @@ public class OracleQueries {
 	public final static String ISVALIDUSER = "select * from p_user " 
 			+ "where email = ? and user_password = ? ";
 	
-	public final static String GETALLSTATES = "select * from p_state ";
+	public final static String GETALLSTATES = "select * from p_state order by code";
 	
-	public final static String GETALLCITIES = "select * from p_city ";
+	public final static String GETALLCITIES = "select * from p_city order by city_name";
 	
 	
 	
