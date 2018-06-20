@@ -43,6 +43,8 @@ public class OracleQueries {
 			+ "where property_id = ?";
 	public final static String INACTIVATEPROPERTYBYID = "update p_property "
 			+ "set status = 'Inactive' where property_id = ?";
+	public final static String DELETEPROPERTYBYID = "delete from p_property "
+			+ "where property_id = ?";
 	
 	public final static String GETSHOWING = "select * from p_requestshowing " 
 			+ "where user_id = ? and property_id = ?";

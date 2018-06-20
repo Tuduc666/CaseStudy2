@@ -2,37 +2,31 @@ package dao;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
 import models.City;
 
-@RunWith(Parameterized.class)
 public class CityDAOTest {
-	int id; String expected; 
+	static CityDAO cDAO;
 	
-	
-	public CityDAOTest(int id, String expected) {
-		super();
-		this.id = id;
-		this.expected = expected;
-	}
-
-	@Parameterized.Parameters
-	public static Collections params() {
-		return (Collections) Arrays.asList(new Object[][] {
-			{1, "TamD@yahoo.com"}
-		});
-		
+	@BeforeClass
+	public static void setup() {
+		cDAO = new CityDAO();
 	}
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testGetCityList() throws IOException, SQLException {
+		List<City> l = new ArrayList<City>();
+		l = cDAO.getCityList();
+			
+		assertEquals("Briarwood", l.get(0).getName());
+		assertEquals("Bronx", l.get(1).getName());
+		assertEquals("Brooklyn", l.get(2).getName());
 	}
-
 }

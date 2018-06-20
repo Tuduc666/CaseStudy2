@@ -286,29 +286,30 @@ public class PropertyDAO {
 		return result > 0;                    
 	}
 	
-//	public boolean deleteProperty(Integer property_id) throws IOException, SQLException {
-//		Connection conn = null;
-//		PreparedStatement stmt = null;
-//		Integer result = null;           
-//		
-//		try {
-//			conn = OracleConnection.getConnection();
-//			stmt = conn.prepareStatement(OracleQueries.DELETEPROPERTYBYID);    
-//			stmt.setInt(1, property_id);          
-//			result = stmt.executeUpdate();
-//						
-//		} catch (ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} finally {
-//			if(stmt != null) {
-//				stmt.close();
-//			}
-//			if(conn != null) {
-//				conn.close();
-//			}
-//		}
-//		return result > 0;                    
-//	}
+	// note: this is only use for cleaning up in J-unit testing
+	public boolean deleteProperty(Integer property_id) throws IOException, SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		Integer result = null;           
+		
+		try {
+			conn = OracleConnection.getConnection();
+			stmt = conn.prepareStatement(OracleQueries.DELETEPROPERTYBYID);    
+			stmt.setInt(1, property_id);          
+			result = stmt.executeUpdate();
+						
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
+		return result > 0;                    
+	}
 
 }
