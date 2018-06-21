@@ -83,10 +83,9 @@ public class PropertyDAOTest {
 	
 	@Test
 	public void t3_testAddProperty() throws IOException, SQLException, ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-		Date javaDate = sdf.parse("2018-06-10");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  // MM and HH must be uppercase, otherwise date would come out wrong
+		Date javaDate = sdf.parse("06/10/2013 18:29:09");
 		java.sql.Date sqlDate = new java.sql.Date(javaDate.getTime());   
-		//???  why does the date above go in as 10-JAN-18 ????????
 
 		String expectedAddr1 = "666 TestBroadway";
 		id = pDAO.addProperty(expectedAddr1, "", "Bronx", "NY", "11111", "aaa", "111", "Rental", "Condo", 1, 
@@ -97,10 +96,9 @@ public class PropertyDAOTest {
 
 	@Test
 	public void t4_testUpdateProperty() throws IOException, SQLException, ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");   // MM must be uppercase, otherwise date would come out wrong
 		Date javaDate = sdf.parse("2018-06-10");
 		java.sql.Date sqlDate = new java.sql.Date(javaDate.getTime());   
-		//???  why does the date above go in as 10-JAN-18 ????????
 		
 		String expectedAddr1 = "666 UpdatedBroadway";
 		Boolean updt = pDAO.updateProperty(id, expectedAddr1, "", "Bronx", "NY", "11111", "aaa", "111", "Rental", "Condo", 1, 
